@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "npm install && nodemon index.js",
-    "heroku-postbuild": "cd client && npm install && npm start",
+    "start": "nodemon index.js",
+    "heroku-postbuild": "cd client && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
