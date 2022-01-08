@@ -10,7 +10,7 @@
   "type": "module",
   "scripts": {
     "start": "nodemon index.js",
-    "heroku-postbuild": "cd client && npm build && npm start",
+    "heroku-postbuild": "cd client && npm install && npm build && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
