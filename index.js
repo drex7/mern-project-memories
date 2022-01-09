@@ -20,7 +20,7 @@ app.use('/posts', postRoutes);
 
 const __dirname = path.resolve();
 console.log('dirname: ', __dirname);
-app.use(express.static(path.join(__dirname + './client/build/')));
+app.use(express.static(path.join(__dirname + '/client/build/')));
 
 // If no API routes are hit, send the React app
 app.get('*', (req, res) => {
@@ -29,10 +29,17 @@ app.get('*', (req, res) => {
 
 const DB_URI = process.env.DB_URI; //"mongodb+srv://juice1:Juice123@cluster0.c3bn6.mongodb.net/MemoriesDB?retryWrites=true&w=majority";
 const DB_URI0 = "mongodb://localhost:27017/memoriesDB";
-
+// const DB_URI1 = `mongodb+srv://${user}:${pass}@cluster0.c3bn6.mongodb.net/${dbName}?retryWrites=true&w=majority`;
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  user: 'juice1',
+  pass: 'Juice123',
+  dbName: 'memoriesDB'
+}
 
 mongoose.connect(
-  DB_URI, 
+  DB_URI,
   {useNewUrlParser: true, useUnifiedTopology: true}
   )
   .then(() => app.listen(PORT, () => console.log(`Server running on port ${PORT}`)))
